@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
+
+    <import resource="classpath:META-INF/cxf/cxf.xml"/>
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
+
+    <bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper">
+    </bean>
+
+    <bean id="jacksonJsonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider">
+        <constructor-arg ref="objectMapper"/>
+    </bean>
+
+    <jaxrs:server id="rest" address="/">
+        <jaxrs:serviceBeans>
+            <bean class="ru.javastudy.springMVC.rest.RootRest"/>
+            <bean class="ru.javastudy.springMVC.rest.MessageRest"/>
+        </jaxrs:serviceBeans>
+        <jaxrs:providers>
+            <ref bean="jacksonJsonProvider"/>
+        </jaxrs:providers>
+    </jaxrs:server>
+</beans>
