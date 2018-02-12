@@ -17,8 +17,8 @@
 
     <jaxrs:server id="rest" address="/">
         <jaxrs:serviceBeans>
-            <bean class="ru.javastudy.springMVC.rest.RootRest"/>
-            <bean class="ru.javastudy.springMVC.rest.MessageRest"/>
+            <bean class="ru.bva.rest.RootRest"/>
+            <bean class="ru.bva.rest.MessageRest"/>
         </jaxrs:serviceBeans>
         <jaxrs:providers>
             <ref bean="jacksonJsonProvider"/>
