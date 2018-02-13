@@ -9,15 +9,16 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
-@Path("/")
+//@Path("/")
 public class RootRest {
     public RootRest() {
     }
-
+    /*
     @GET
     @Produces({"text/html"})
     public InputStream getMessage(@PathParam("id") Integer id) throws FileNotFoundException {
         File f = new File("C:\\JavaProjects\\SpringMVC_JSPHelloWorld\\web\\resources\\index.html");
         return new FileInputStream(f);
     }
+    */
 }

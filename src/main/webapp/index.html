@@ -43,7 +43,7 @@
                         this.responseText;
             }
         };
-        xhttp.open("GET", 'http://localhost:8082/message', true);
+        xhttp.open("GET", 'rest/message', true);
         xhttp.send();
     }
     function getOne() {
@@ -54,7 +54,7 @@
                         this.responseText;
             }
         };
-        xhttp.open("GET", 'http://localhost:8082/message/' + document.getElementById("message_id").value, true);
+        xhttp.open("GET", 'rest/message/' + document.getElementById("message_id").value, true);
         xhttp.send();
     }
     function postOne() {
@@ -66,7 +66,7 @@
             }
         };
         var data = JSON.stringify({"id": null, "message": document.getElementById("message_text").value});
-        xhttp.open("POST", 'http://localhost:8082/message', true);
+        xhttp.open("POST", 'rest/message', true);
         xhttp.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
         xhttp.send(data);
     }

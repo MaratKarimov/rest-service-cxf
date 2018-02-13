@@ -17,7 +17,6 @@
 
     <jaxrs:server id="rest" address="/">
         <jaxrs:serviceBeans>
-            <bean class="ru.bva.rest.RootRest"/>
             <bean class="ru.bva.rest.MessageRest"/>
         </jaxrs:serviceBeans>
         <jaxrs:providers>

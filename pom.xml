@@ -6,6 +6,8 @@
 
     <groupId>ru.javastudy</groupId>
     <artifactId>rest-service-cxf</artifactId>
+    <!-- build as web-archive -->
+    <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -21,7 +23,6 @@
     </properties>
 
     <dependencies>
-
         <!-- JAX-RS API -->
         <dependency>
             <groupId>javax.ws.rs</groupId>
@@ -52,34 +53,49 @@
             <artifactId>cxf-rt-frontend-jaxrs</artifactId>
             <version>${apache.cxf.version}</version>
         </dependency>
-
+        <!-- Jackson data binds -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
         </dependency>
-
+        <!-- Jackson JAX-RS JSON provider -->
         <dependency>
             <groupId>com.fasterxml.jackson.jaxrs</groupId>
             <artifactId>jackson-jaxrs-json-provider</artifactId>
             <version>${jackson.version}</version>
         </dependency>
-
         <!-- dbcp2 -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-dbcp2</artifactId>
             <version>${dbcp2.version}</version>
         </dependency>
-
         <!-- H2 Database Driver-->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>${h2.version}</version>
         </dependency>
-
-
-
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>fish.payara.maven.plugins</groupId>
+                <artifactId>payara-micro-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>bundle</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <payaraVersion>4.1.2.172</payaraVersion>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
